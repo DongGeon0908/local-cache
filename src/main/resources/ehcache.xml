@@ -1,0 +1,29 @@
+<config
+        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xmlns='http://www.ehcache.org/v3'
+        xmlns:jsr107="http://www.ehcache.org/v3/jsr107"
+        xsi:schemaLocation="http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core.xsd
+http://www.ehcache.org/v3/jsr107 http://www.ehcache.org/schema/ehcache-107-ext-3.0.xsd">
+    <service>
+        <jsr107:defaults enable-management="true" enable-statistics="true"/>
+    </service>
+
+    <!--여기부터 -->
+    <cache-template name="myDefaultTemplate">
+        <expiry>
+            <ttl unit="minutes">60</ttl>
+        </expiry>
+        <heap>2</heap>
+    </cache-template>
+
+    <!--test-->
+    <cache alias="Test.getTest" uses-template="myDefaultTemplate">
+        <key-type>java.lang.Long</key-type>
+        <value-type>java.lang.String</value-type>
+        <resources>
+            <heap>2</heap>
+        </resources>
+    </cache>
+    <!--여기까지 사용자 환경설정 -->
+
+</config>

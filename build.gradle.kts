@@ -35,7 +35,7 @@ idea {
 
 object DependencyVersion {
     const val KOTLIN_LOGGING_VERSION = "3.0.4"
-    const val EHCACHE_VERSION = "3.10.6"
+    const val EHCACHE_VERSION = "3.8.1"
     const val JAVA_CACHE_API_VERSION = "1.1.1"
 }
 
@@ -43,6 +43,7 @@ dependencies {
     // spring starter
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter")
+    implementation("org.springframework.boot:spring-boot-starter-cache")
     kapt("org.springframework.boot:spring-boot-configuration-processor")
 
     // kotlin
