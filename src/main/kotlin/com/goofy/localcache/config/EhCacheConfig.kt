@@ -8,21 +8,26 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.core.io.ClassPathResource
 
-
 @Configuration
 @EnableCaching
 class EhCacheConfiguration {
+    companion object {
+        private const val EHCACHE_XML_PATH = "ehcache.xml"
+    }
+
     @Bean
     fun cacheManagerFactoryBean(): JCacheManagerFactoryBean {
         return JCacheManagerFactoryBean().apply {
-            this.setCacheManagerUri(ClassPathResource("ehcache.xml").uri)
+            val path = ClassPathResource(EHCACHE_XML_PATH).uri
+            this.setCacheManagerUri(path)
         }
     }
 
     @Bean
     fun testEhCacheManager(): CacheManager {
         return JCacheCacheManager().apply {
-            this.cacheManager = cacheManagerFactoryBean().getObject()
+            val cacheManager = cacheManagerFactoryBean().getObject()
+            this.cacheManager = cacheManager
         }
     }
 }
