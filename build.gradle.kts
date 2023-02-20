@@ -40,25 +40,25 @@ object DependencyVersion {
 }
 
 dependencies {
-    // spring starter
+    /** spring starter */
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-cache")
     kapt("org.springframework.boot:spring-boot-configuration-processor")
 
-    // kotlin
+    /** kotlin */
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
-    // logger
+    /** logger */
     implementation("io.github.microutils:kotlin-logging-jvm:${DependencyVersion.KOTLIN_LOGGING_VERSION}")
 
-    // local cache
+    /** local cache */
     implementation("org.ehcache:ehcache:${DependencyVersion.EHCACHE_VERSION}")
     implementation("javax.cache:cache-api:${DependencyVersion.JAVA_CACHE_API_VERSION}")
 
-    // test
+    /** test */
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
