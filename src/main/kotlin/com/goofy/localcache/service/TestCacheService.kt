@@ -17,7 +17,6 @@ class TestCacheService(
         key = "#id"
     )
     fun getTest(id: Long): String? {
-        logger.info { "get Test id : $id" }
         return testRepository.findById(id)
     }
 }

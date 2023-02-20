@@ -13,6 +13,15 @@ http://www.ehcache.org/v3/jsr107 http://www.ehcache.org/schema/ehcache-107-ext-3
         <expiry>
             <ttl unit="minutes">60</ttl>
         </expiry>
+        <listeners>
+            <listener>
+                <class>com.goofy.localcache.config.EhCacheEventLogger</class>
+                <event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+                <event-ordering-mode>UNORDERED</event-ordering-mode>
+                <events-to-fire-on>CREATED</events-to-fire-on>
+                <events-to-fire-on>EXPIRED</events-to-fire-on>
+            </listener>
+        </listeners>
         <heap>2</heap>
     </cache-template>
 
